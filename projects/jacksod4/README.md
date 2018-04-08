@@ -1,1 +1,1 @@
-jacksod4 Daniel Jackson
+This is my assignment-1 submission!
