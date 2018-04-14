@@ -1254,7 +1254,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 int smithyRefactor(int currentPlayer, struct gameState *state, int handPos){
     //+3 Cards		
 	int i;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 6; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}		
@@ -1270,7 +1270,7 @@ int adventurerRefactor(int currentPlayer, struct gameState *state){
     int drawntreasure=0;
 	
 	while(drawntreasure<2){
-	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
+	if (state->deckCount[currentPlayer] <=1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
 	}
 	drawCard(currentPlayer, state);
@@ -1331,7 +1331,7 @@ int remodelRefactor(int choice1, int choice2, struct gameState *state, int handP
       gainCard(choice2, state, 0, currentPlayer);
 
       //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+      discardCard(handPos, currentPlayer, state, 1);
 
       //discard trashed card
       for (i = 0; i < state->handCount[currentPlayer]; i++)
@@ -1352,6 +1352,7 @@ int great_hallRefactor(int currentPlayer, struct gameState *state, int handPos){
 			
       //+1 Actions
       state->numActions++;
+	  state->numActions++;
 			
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
