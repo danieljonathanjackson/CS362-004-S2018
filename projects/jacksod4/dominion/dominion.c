@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-
 int compare(const void* a, const void* b) {
   if (*(int*)a > *(int*)b)
     return 1;
@@ -414,7 +413,7 @@ int isGameOver(struct gameState *state) {
   return 0;
 }
 
-int scoreFor (int player, struct gameState *state) {
+int scoreFor(int player, struct gameState *state) {
 
   int i;
   int score = 0;
